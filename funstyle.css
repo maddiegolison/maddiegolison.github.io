@@ -1,0 +1,26 @@
+/* Comments */
+
+body {
+	padding: 30px;
+	background-color: rgb(250, 185, 204);
+	font-family: Georgia;
+}
+
+#header {
+	text-align: center;
+	font-family: Georgia;
+	border-color: white;
+	border-style: double;
+}
+
+.category {
+	border-bottom: solid;
+}
+
+a:hover {
+    color: #FF00FF;
+}
+
+ul {
+    list-style-type: circle;
+}
