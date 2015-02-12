@@ -20,4 +20,4 @@ Identify anyone with whom you have collaborated or discussed the assignment.
 
 Say approximately how many hours you have spent completing the assignment.
 
-	I probably spent about 8 hours on this assignment. 
+	I probably spent about 10 hours on this assignment. 

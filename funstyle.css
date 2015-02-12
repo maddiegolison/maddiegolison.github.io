@@ -1,9 +1,16 @@
-/* Comments */
+/* 
+Assignment 1
+funstyle.css
+Madeleine Golison
+2/12/2015
+ */
 
 body {
 	padding: 30px;
 	background-color: rgb(250, 185, 204);
 	font-family: Georgia;
+	color: white;
+	font-size: 18px;
 }
 
 #header {
@@ -17,10 +24,14 @@ body {
 	border-bottom: solid;
 }
 
-a:hover {
-    color: #FF00FF;
+a:visited {
+    color: white;
 }
 
-ul {
-    list-style-type: circle;
+a:hover {
+    color: gray;
+}
+
+#links {
+	text-align: center;
 }
