@@ -1,0 +1,15 @@
+/* style.css */
+
+body {
+	font-style: helvetica;
+	background-color: rgb(255, 253, 208);
+}
+
+#content {
+	color: salmon;
+	font-size: 24px;
+}
+
+h2 {
+	color: salmon;
+}
