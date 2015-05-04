@@ -8,24 +8,44 @@
 		<script>
 			var request = new XMLHttpRequest();
 			
+
 			function sendInfo(form)
 			{
-				var name = form.usrname.value;
-				var eMail = form.mail.value;
+				var uname = form.usrname.value;
+				var psswd = form.pswd.value;
+
 				console.log(name);
-				request.open("POST", "https://amuse-bouche.herokuapp.com/login", true);
+				request.open("GET", "https://amuse-bouche.herokuapp.com/login.json", true);
 				request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-				request.onreadystatechange = parseData;
-				request.send("username="+name+"&email="+eMail);
+				request.onreadystatechange = parseData1;
+				request.send("username="+uname+"&password="+psswd);
 			}
-			function parseData() {
+			function createUser(form)
+			{
+				var uname = form.usrname.value;
+				var psswd = form.pswd.value;
+				var name = form.nme.value;
+				var email = form.mail.value; 
+				console.log(name);
+				request.open("POST", "https://amuse-bouche.herokuapp.com/newUser", true);
+				request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+				request.onreadystatechange = parseData2;
+				request.send("username="+uname+"&password="+psswd+"&firstname="+name+"&mail="+email);
+			}
+			function parseData1() {
+				if (request.readyState == 4 && request.status == 200){
+					data = JSON.parse(request.responseText);
+						console.log(data.username); 	
+				}
+			}
+			function parseData2() {
 				if (request.readyState == 4 && request.status == 200){
 					data = JSON.parse(request.responseText);
 					for (i = 0; i < data.length; i++) {
-						document.getElementById('canvas').innerHTML += '<p>'+data[i].username+'</p>'; 	
+						console.log(data[i].mail); 	
 						}
 					}
-				}
+			}
 		</script>
 	</head>
 	
@@ -34,10 +54,27 @@
 			User name:<br>
 			<input type="text" name="usrname" value="">
 			<br>
-			User E-mail:<br>
-			<input type="text" name="mail" value="">
+			Password:<br>
+			<input type="text" name="pswd" value="">
+			<br>
 			<input type="button" onclick="sendInfo(this.form)" value="GO">
 		</form>
+		<form>
+			User name:<br>
+			<input type="text" name="usrname" value="">
+			<br>
+			Password:<br>
+			<input type="text" name="pswd" value="">
+			<br>
+			Name: <br>
+			<input type="text" name="nme" value="">
+			<br>
+			E-mail: <br>
+			<input type="text" name="mail" value="">
+			<br>
+			<input type="button" onclick="createUser(this.form)" value="Sign Up">
+		</form>
 		<div id="canvas"></div>
+		<div id="canvas2"></div>
 	</body>
 </html>
